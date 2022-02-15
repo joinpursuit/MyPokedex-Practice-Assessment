@@ -10,13 +10,13 @@ const exampleWeaknesses = require("../data/weaknesses");
 /**
  * filterByType()
  * -----------------------------
- * Returns all Pokemon objects with a matching genre. Case-insensitive. If the inputted `movies` array is empty or no movies match the inputted `type`, return `[]`.
+ * Returns all Pokemon objects with a matching `type`. Case-insensitive. If the inputted `pokemon` array is empty or no Pokemon match the inputted `type`, return `[]`.
  * @param {Object[]} pokemon - An array of Pokemon. See the `poke.js` file for an example of this array.
  * @param {string} type - The type of a Pokemon. (e.g. "Fire")
  * @returns {Object[]} An array of Pokemon where at least one of the types matches the `type` inputted.
  *
  * EXAMPLE:
- *  filterByType(pokemon, "Steel");
+ *  filterByType(pokemon, "steel");
  *  //> [
       {
         // Coco
