@@ -11,13 +11,40 @@ const morePokemon = require("../data/poke_remix");
  * -----------------------------
  * Returns an object where the keys are Pokemon types and the values are the number of Pokemon in the array with that type. If the inputted `pokemon` array is empty, return `{}`.
  * @param {Object[]} pokemon - An array of Pokemon. See the `poke.js` file for an example of this array.
- * @returns {Object} An object where keys are Pokemon types (e.g. "Water") and the values are how many Pokemon in the array have that type (e.g. 7).
+ * @returns {Object} An object where keys are Pokemon types (e.g. "Water") and the values are how many Pokemon in the array have that type (e.g. 22).
  *
  * EXAMPLE:
  *  countByType(pokemon);
- *  //> { Steel: 3, Electric: 5 }
+ *  //> {
+        Grass: 11,
+        Poison: 14,
+        Fire: 8,
+        Flying: 12,
+        Water: 22,
+        Bug: 8,
+        Normal: 14,
+        Electric: 5,
+        Ground: 10,
+        Steel: 3,
+        Fairy: 5,
+        Fighting: 5,
+        Psychic: 13,
+        Rock: 4,
+        Ice: 4,
+        Ghost: 2,
+        Dragon: 3
+    };
  */
-function countByType() { }
+function countByType(pokemon) {
+    let types = {};
+    for (let poke of pokemon) {
+        for (let type of poke.type) {
+            types[type] = (types[type] || 0) + 1
+        }
+    };
+    return types;
+}
+
 
 /**
  * findByNumber()
@@ -33,5 +60,10 @@ function countByType() { }
       // Hitmonlee
     };
  */
-function findByNumber() {};
+function findByNumber() { };
 
+
+module.exports = {
+    countByType,
+    findByNumber,
+};
