@@ -7,6 +7,7 @@ const pokemon = require("../data/poke");
 const shuffledPokemon = require("../data/poke_remix");
 const weaknesses = require("../data/weaknesses");
 
+
 describe("filterByType()", () => {
   test("should return the names of pokemon with matching type", () => {
     const type = "Grass";
@@ -65,3 +66,4 @@ describe("getPokemonNamesMostEffectiveAgainstType()", () => {
     expect(actual).toEqual(expected);
   });
 });
+
