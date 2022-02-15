@@ -52,3 +52,8 @@ function filterByType() {}
     ];
  */
 function getPokemonNamesMostEffectiveAgainstType(){}
+
+module.exports = {
+    filterByType,
+    getPokemonNamesMostEffectiveAgainstType
+}
