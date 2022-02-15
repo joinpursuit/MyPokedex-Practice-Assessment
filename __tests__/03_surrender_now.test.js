@@ -1,67 +1,69 @@
 const {
-    filterByType,
-    getPokemonNamesMostEffectiveAgainstType
+  filterByType,
+  getPokemonNamesMostEffectiveAgainstType,
 } = require("../src/03_surrender_now");
 
 const pokemon = require("../data/poke");
 const shuffledPokemon = require("../data/poke_remix");
 const weaknesses = require("../data/weaknesses");
 
-describe("filterByGenre()", () => {
-    test("should return all pokemon that include the specified type", () => {
-        const type = "Mystery";
-        const actual = filterByType(pokemon, type);
-        const expected = [
-            pokemon[2], // Coco
-        ];
-        expect(actual).toEqual(expected);
-    });
-    test("should dynamically change depending on the type inputted", () => {
-        const type = "Fantasy";
-        const actual = filterByType(pokemon, type);
-        const expected = [
-            pokemon[0], // Toy Story 4
-            pokemon[1], // Inside Out
-            pokemon[2], // Coco
-            pokemon[5], // How to Train Your Dragon
-            pokemon[8], // Fantasia
-            pokemon[9], // James and the Giant Peach
-        ];
-        expect(actual).toEqual(expected);
-    });
-    test("should dynamically change depending on the pokemon inputted", () => {
-        const type = "Action";
-        const actual = filterByType(alternative, type);
-        const expected = [
-            alternative[0], // Black Panther
-            alternative[1], // Wonder Woman
-            alternative[3], // Skyfall
-        ];
-        expect(actual).toEqual(expected);
-    });
-    test("should be case-insensitive", () => {
-        const type = "FANTASY";
-        const actual = filterByType(pokemon, type);
-        const expected = [
-            pokemon[0], // Toy Story 4
-            pokemon[1], // Inside Out
-            pokemon[2], // Coco
-            pokemon[5], // How to Train Your Dragon
-            pokemon[8], // Fantasia
-            pokemon[9], // James and the Giant Peach
-        ];
-        expect(actual).toEqual(expected);
-    });
-    test("should return an empty array if no pokemon match the type", () => {
-        const type = "Horror";
-        const actual = filterByType(pokemon, type);
-        const expected = [];
-        expect(actual).toEqual(expected);
-    });
-    test("should return an empty array if there are no pokemon", () => {
-        const type = "Action";
-        const actual = filterByType([], type);
-        const expected = [];
-        expect(actual).toEqual(expected);
-    });
+
+describe("filterByType()", () => {
+  test("should return the names of pokemon with matching type", () => {
+    const type = "Grass";
+    const actual = filterByType(pokemon, type);
+    const expected = [
+      "Bulbasaur",
+      "Ivysaur",
+      "Venusaur",
+      "Paras",
+      "Parasect",
+      "Bellsprout",
+      "Weepinbell",
+      "Victreebel",
+      "Exeggcute",
+      "Exeggutor",
+      "Tangela",
+    ];
+    expect(actual).toEqual(expected);
+  });
+  test("should return an empty array if there are no pokemon of that type", () => {
+    const type = "Shadow";
+    const actual = filterByType(pokemon, type);
+    const expected = [];
+    expect(actual).toEqual(expected);
+  });
 });
+
+describe("getPokemonNamesMostEffectiveAgainstType()", () => {
+  test("should return the names of pokemon that are weak to the given type", () => {
+    const type = "Water";
+    const actual = getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, type);
+    const expected = [
+      "Pikachu",
+      "Raichu",
+      "Voltorb",
+      "Electrode",
+      "Zapdos",
+      "Bulbasaur",
+      "Ivysaur",
+      "Venusaur",
+      "Paras",
+      "Parasect",
+      "Bellsprout",
+      "Weepinbell",
+      "Victreebel",
+      "Exeggcute",
+      "Exeggutor",
+      "Tangela",
+    ];
+    expect(actual).toEqual(expected);
+  });
+  test("should return an error message if no pokemon match type", () => {
+    const type = "Hot Sauce";
+    const actual = getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, type);
+    const expected = `No Pokemon found of type: '${type}'.`;
+    expect(actual).toEqual(expected);
+  });
+});
+
