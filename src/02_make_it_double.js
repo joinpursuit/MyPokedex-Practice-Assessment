@@ -35,15 +35,7 @@ const morePokemon = require("../data/poke_remix");
         Dragon: 3
     };
  */
-function countByType(pokemon) {
-    let types = {};
-    for (let poke of pokemon) {
-        for (let type of poke.type) {
-            types[type] = (types[type] || 0) + 1
-        }
-    };
-    return types;
-}
+function countByType() {}
 
 
 /**
@@ -60,7 +52,7 @@ function countByType(pokemon) {
       // Hitmonlee
     };
  */
-function findByNumber() { };
+function findByNumber() {};
 
 
 module.exports = {
