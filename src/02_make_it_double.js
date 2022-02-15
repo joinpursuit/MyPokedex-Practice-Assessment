@@ -15,7 +15,7 @@ const morePokemon = require("../data/poke_remix");
  *
  * EXAMPLE:
  *  countByType(pokemon);
- *  //> { G: 3, PG: 7 }
+ *  //> { Steel: 3, Electric: 5 }
  */
 function countByType() { }
 
