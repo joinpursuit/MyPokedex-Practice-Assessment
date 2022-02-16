@@ -37,7 +37,7 @@ const examplePokemon = require("../data/poke");
   'Dratini',    'Dragonair',  'Dragonite',  'Mewtwo'
 ];
  */
-function getAllPokemonNames(pokemon) {};
+function getAllPokemonNames() {};
 
 /**
  * getHighestAttackStatScore()
@@ -50,7 +50,7 @@ function getAllPokemonNames(pokemon) {};
  *  getHighestAttackStatScore(pokemon);
  *  //> 134
  */
-function getHighestAttackStatScore(pokemon) {};
+function getHighestAttackStatScore() {};
 
 /**
  * getAverageTotalStatScore()
@@ -63,7 +63,7 @@ function getHighestAttackStatScore(pokemon) {};
  *  getAverageTotalStatScore(pokemon);
  *  //> 407.22
  */
-function getAverageTotalStatScore(pokemon) {}
+function getAverageTotalStatScore() {}
 
 
 module.exports = {
