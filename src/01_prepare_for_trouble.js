@@ -3,7 +3,6 @@
   Keep in mind that your functions must still have and use a parameter for accepting all Pokemon.
 */
 const examplePokemon = require("../data/poke");
-const morePokemon = require("../data/poke_remix");
 // Do not change the line above.
 
 /**
