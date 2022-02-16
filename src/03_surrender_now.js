@@ -14,36 +14,44 @@ const exampleWeaknesses = require("../data/weaknesses");
  * Returns all Pokemon names with a matching type. Case-insensitive. If the inputted `pokemon` array is empty or no pokemon match the inputted `type`, return `[]`.
 
  * @param {Object[]} pokemon - An array of Pokemon. See the `poke.js` file for an example of this array.
- * @param {string} type - The type of a Pokemon. (e.g. "Fire")
- * @returns {Object[]} An array of Pokemon where at least one of the types matches the `type` inputted.
+ * @param {string} type - an optional parameter. The type of a Pokemon. (e.g. "Fire")
+ * @returns {Object[]} An array of Pokemon objects where at least one of the Pokemons's types matches the `type` inputted.
  *
  * EXAMPLE:
 
  *  filterByType(pokemon, "Steel");
- *  //> [ 'Sandshrew', 'Diglett', 'Dugtrio' ]
+ *  //> [ {
+ *          // 'Sandshrew'
+ *        }, 
+ *        {
+ *          // 'Diglett'
+ *        }, 
+ *        {
+ *          // 'Dugtrio'
+ *        } ]
 
  *
  * EXAMPLE:
  *  filterByType(pokemon, "Shadow")
  *  //> [];
  */
-function filterByType(pokemon, type) {}
+function filterByType() {}
 
 /**
  * getPokemonNamesMostEffectiveAgainstType()
  * -----------------------------
  * Returns all names of Pokemon that have a `type` to which the given `type` is weak.
  * @param {Object[]} pokemon - An array of Pokemon. See the `poke.js` file for an example of this array.
+ * @param {object} weaknesses - An object where the keys are Pokemon types and the values are and array of the types of Pokemon to which the given type is weakened.
  * @param {string} type - A type as a string. (e.g. "Psychic")
- * @returns {Object[]} An array of Pokemon names where the at least one of its types is a `type` the passed in `type` is weakened by.
+ * @returns {Object[]} An array of unique Pokemon names where the at least one of its types is a `type` the passed in `type` is weakened by.
  *
  * EXAMPLE:
  *  getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, "Electric");
  *  //> [
     ];
  */
-function getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, type) {}
-
+function getPokemonNamesMostEffectiveAgainstType() {}
 
 module.exports = {
     filterByType,
