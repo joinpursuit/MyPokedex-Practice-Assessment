@@ -72,12 +72,12 @@ function getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, type) {
 
   for (i in weaknesses){
     if (i === type){
-      effectiveAgainst = weaknesses[i]
+      effectiveAgainst = weaknesses[i];
     }
   }
 
   if(!effectiveAgainst){
-    return `No Pokemon found of type: '${type}'.`
+    return `No Pokemon found of type: '${type}'.`;
   }
 
 
@@ -85,15 +85,16 @@ function getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, type) {
     for (let j = 0; j < pokemon[i].type.length; j ++){
       if (effectiveAgainst.includes(pokemon[i].type[j])){
         if (!superEffective.includes(pokemon[i].name)){
-          superEffective.push(pokemon[i].name)
+          superEffective.push(pokemon[i].name);
         }
       }
     }
   }
 
 
-return superEffective
+return superEffective;
 };
+
 module.exports = {
     filterByType,
     getPokemonNamesMostEffectiveAgainstType

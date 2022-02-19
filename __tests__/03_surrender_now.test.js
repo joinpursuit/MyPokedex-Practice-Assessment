@@ -122,7 +122,7 @@ describe("getPokemonNamesMostEffectiveAgainstType()", () => {
             "Exeggutor",
             "Tangela",
         ];
-        expect(actual).toEqual(expect.arrayWithExactContents(expected));
+        expect(actual.sort()).toEqual(expected.sort());
     });
     test("should dynamically change depending on the type inputted", () => {
         const type = "Fairy";
@@ -146,13 +146,13 @@ describe("getPokemonNamesMostEffectiveAgainstType()", () => {
             'Koffing',
             'Weezing'
         ];
-        expect(actual).toEqual(expect.arrayWithExactContents(expected));
+        expect(actual.sort()).toEqual(expected.sort());
     });
     test("should dynamically change depending on the pokemon inputted", () => {
         const type = "Water";
         const actual = getPokemonNamesMostEffectiveAgainstType(shuffledPokemon, weaknesses, type);
         const expected = ["Exeggcute"];
-        expect(actual).toEqual(expect.arrayWithExactContents(expected));
+        expect(actual.sort()).toEqual(expected.sort());
     });
     test("should not contain duplicates", () => {
         const type = "Rock";
@@ -171,7 +171,7 @@ describe("getPokemonNamesMostEffectiveAgainstType()", () => {
             'Goldeen', 'Seaking', 'Staryu', 'Starmie',
             'Magikarp', 'Gyarados', 'Lapras'
         ];
-        expect(actual).toEqual(expect.arrayWithExactContents(expected));
+        expect(actual.sort()).toEqual(expected.sort());
     });
     test("should return an error message if type is not valid", () => {
         const type = "Hot Sauce";
