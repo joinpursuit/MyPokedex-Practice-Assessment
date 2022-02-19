@@ -34,15 +34,24 @@ const exampleWeaknesses = require("../data/weaknesses");
  * EXAMPLE:
  *  filterByType(pokemon, "Shadow")
  *  //> [];
- */
-function filterByType() {}
+ */                                
+function filterByType(pokemon, type = 'Normal') {
+  let pokeTypes = [];
+  for (let i = 0; i < pokemon.length; i++) {
+    for (let j = 0; j < pokemon[i].type.length; j++) {
+      if (pokemon[i].type[j].toLowerCase() === type.toLowerCase())
+      pokeTypes.push(pokemon[i])
+    }
+  } 
+  return pokeTypes
+}
 
 /**
  * getPokemonNamesMostEffectiveAgainstType()
  * -----------------------------
  * Returns all names of Pokemon that have a `type` to which the given `type` is weak.
  * @param {Object[]} pokemon - An array of Pokemon. See the `poke.js` file for an example of this array.
- * @param {object} weaknesses - An object where the keys are Pokemon types and the values are and array of the types of Pokemon to which the given type is weakened.
+ * @param {object} weaknesses - An object where the keys are Pokemon types and the values are an array of the types of Pokemon to which the given type is weakened.
  * @param {string} type - A type as a string. (e.g. "Psychic")
  * @returns {Object[]} An array of unique Pokemon names where the at least one of its types is a `type` the passed in `type` is weakened by.
  *
@@ -56,7 +65,35 @@ function filterByType() {}
     *  getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, "copyright infringement");
  *  //> [];
  */
-function getPokemonNamesMostEffectiveAgainstType() {}
+function getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, type) {
+  let superEffective = []; 
+  let strongType;
+
+  for(i in weaknesses) {     
+       if(i === type) {
+         strongType = weaknesses[i]
+       }
+    }
+    if (!strongType) {
+      return `No Pokemon found of type: '${type}'.`
+    }
+    for (let k = 0; k < pokemon.length; k++) {
+       for (let p = 0; p < pokemon[k].type.length; p++) {
+         if (strongType.includes(pokemon[k].type[p])) {
+           if (!superEffective.includes(pokemon[k].name)) {
+             superEffective.push(pokemon[k].name)
+           }
+         }
+       }
+     } return superEffective
+   } 
+      
+       
+      
+  
+ 
+
+    
 
 module.exports = {
     filterByType,
