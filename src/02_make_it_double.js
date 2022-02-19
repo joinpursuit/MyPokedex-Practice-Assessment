@@ -35,8 +35,19 @@ const examplePokemon = require("../data/poke");
         Dragon: 3
     };
  */
-function countByType() {}
-
+function countByType(pokemon) {
+  let pokeCount = {};
+  for (let poke of pokemon) {
+    for (let type of poke.type) {
+      if (!pokeCount[type]) {
+        pokeCount[type] = 1;
+      } else {
+        pokeCount[type]++;
+      }
+    }
+  }
+  return pokeCount;
+}
 
 /**
  * findByNumber()
@@ -52,7 +63,15 @@ function countByType() {}
       // Hitmonlee
     };
  */
-function findByNumber() {};
+
+function findByNumber(pokemon, pokeNumber) {
+  for (let poke of pokemon) {
+    if (poke.national_number == pokeNumber) {
+      return poke;
+    }
+  }
+  return null;
+}
 
 
 module.exports = {
