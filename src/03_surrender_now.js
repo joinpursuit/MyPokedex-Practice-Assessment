@@ -47,9 +47,14 @@ function filterByType() {}
  * @returns {Object[]} An array of unique Pokemon names where the at least one of its types is a `type` the passed in `type` is weakened by.
  *
  * EXAMPLE:
- *  getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, "Electric");
+ *  getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, "Dragon");
  *  //> [
+        "Dratini",
+        "Dragonair",
+        "Dragonite",
     ];
+    *  getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, "copyright infringement");
+ *  //> [];
  */
 function getPokemonNamesMostEffectiveAgainstType() {}
 
