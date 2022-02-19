@@ -37,7 +37,13 @@ const examplePokemon = require("../data/poke");
   'Dratini',    'Dragonair',  'Dragonite',  'Mewtwo'
 ];
  */
-function getAllPokemonNames() {};
+function getAllPokemonNames(pokemon) {
+  let array = [];
+  for (let i = 0; i < pokemon.length; i++){
+    array.push(pokemon[i].name)
+  }
+  return array;
+};
 
 /**
  * getHighestAttackStatScore()
@@ -50,7 +56,24 @@ function getAllPokemonNames() {};
  *  getHighestAttackStatScore(pokemon);
  *  //> 134
  */
-function getHighestAttackStatScore() {};
+function getHighestAttackStatScore(pokemon) {
+  if (!pokemon.length){
+    return 0;
+  }
+  
+  let highestAttack = pokemon[0].stats[2].value;
+  for (let i = 1; i < pokemon.length; i++){
+    for (let j = 0; j < pokemon[i].stats.length; j++){
+      if (pokemon[i].stats[j].category === 'attack'){
+        let opponent = pokemon[i].stats[j].value;
+        if (highestAttack < opponent){
+          highestAttack = opponent;
+        }
+      }
+    }
+  }
+  return highestAttack;
+};
 
 /**
  * getAverageTotalStatScore()
@@ -63,7 +86,24 @@ function getHighestAttackStatScore() {};
  *  getAverageTotalStatScore(pokemon);
  *  //> 407.22
  */
-function getAverageTotalStatScore() {}
+function getAverageTotalStatScore(pokemon) {
+  let averageTotal = 0;
+  let numberOfPokemons = 0;
+
+  if (!pokemon.length){
+    return averageTotal;
+  }
+
+  for (let i = 0; i < pokemon.length; i++){
+    for (let j = 0; j < pokemon[i].stats.length; j++){
+      if (pokemon[i].stats[j].category === 'total'){
+        averageTotal += pokemon[i].stats[j].value;
+        numberOfPokemons += 1;
+      }
+    }
+  }
+  return averageTotal / numberOfPokemons;
+}
 
 
 module.exports = {
