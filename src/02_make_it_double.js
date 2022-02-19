@@ -68,7 +68,7 @@ pokeTypes[count] =(pokeTypes[count] + 1 || 1)
 function findByNumber(pokemon,number) {;
 let pokeNumber = null;
 
-for (let i =0; i < pokemon.length; i++){
+for (let i = 0; i < pokemon.length; i++){
   if (pokemon[i].national_number === number){
     pokeNumber = pokemon[i]
   }
