@@ -51,7 +51,7 @@ for (let i = 0; i < pokemon.length; i++){//loop pokemon arr
       result.push(pokemon[i]);
     }
 
-  }
+}
   
 
 
@@ -85,36 +85,24 @@ function getPokemonNamesMostEffectiveAgainstType(pokemon,weaknesses,typeGiven) {
     return result;
   }
 
-  for (const weakArr in weaknesses) {
-    
-    //find the weaknesses
-     console.log(weaknesses[weakArr]); //the array that shows type is weak against.
-    //need var to store the weaknesses arrary? - loop the arry - see if pokedex has it - if so, return all of the pokemon in it - repeat until end of the weakness array.
-    if (typeGiven === weakArr) {//-------problem 
-      //loops pokemon to find = type
-      for (let i = 0; i < pokemon.length; i++) {
-        //loop pokemon arr
-        for (let j = 0; j < pokemon[i].type.length; j++) {
-          //loop type arr
-          //if (typeGiven === pokemon[i].type[j])
+// if (weaknesses[typeGiven]){
+//   //console.log (weaknesses[typeGiven]);//[ 'Electric', 'Grass' ]//prinint poke with the ele and grass
+//   for (let i = 0; i < pokemon.length; i++){//loop pokemon arr
+//     for (let j = 0; j < pokemon[i].type.length; j++) {//loop type arr
+//       if (weaknesses[typeGiven].includes(pokemon[i].type[j])){//if the type is in the array of weakness print it. 
+//       result.push(pokemon[i].name);
+//       }
+//     }
+//   }
+// } else {
+//   result = `No Pokemon found of type: '${typeGiven}'.`;
+//   return result;
+// }
 
-          for (let k = 0; k < weaknesses[weakArr].length; k++) {
-            // I know this is probably not the best way of doing this.
-
-            if (weaknesses[weakArr][k] === pokemon[i].type[j]) {
-              result.push(pokemon[i].name);
-            }
-          }
-        }
-      }
-    } else {
-     result = `No Pokemon found of type: '${typeGiven}'.`;
-     return result;
-    }
-  }
-
-  return result;
+return result;
 }
+  
+
 
 module.exports = {
     filterByType,
