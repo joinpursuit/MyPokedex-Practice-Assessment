@@ -2,6 +2,7 @@
   Do not change the line below. If you'd like to run code from this file, you may use the `examplePokemon` variable below to gain access to an array of Pokemon.
   Keep in mind that your functions must still have and use a parameter for accepting all Pokemon.
 */
+const pokemon = require("../data/poke");
 const examplePokemon = require("../data/poke");
 
 // Do not change the line above.
@@ -35,8 +36,20 @@ const examplePokemon = require("../data/poke");
         Dragon: 3
     };
  */
-function countByType() {}
-
+function countByType(pokemon) {
+  let pokeTypes = {}
+  for (let i = 0; i < pokemon.length; i++){
+    if(pokemon.length === 0){
+      return pokeTypes
+}else {
+for (let j = 0; j < pokemon[i].type.length; j ++){
+let count = pokemon[i].type[j]
+pokeTypes[count] =(pokeTypes[count] + 1 || 1)
+}
+}
+  }
+  return pokeTypes
+}
 
 /**
  * findByNumber()
@@ -52,9 +65,16 @@ function countByType() {}
       // Hitmonlee
     };
  */
-function findByNumber() {};
+function findByNumber(pokemon,number) {;
+let pokeNumber = null;
 
-
+for (let i = 0; i < pokemon.length; i++){
+  if (pokemon[i].national_number === number){
+    pokeNumber = pokemon[i]
+  }
+}
+  return pokeNumber
+}
 module.exports = {
     countByType,
     findByNumber,
