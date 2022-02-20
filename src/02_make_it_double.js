@@ -35,9 +35,29 @@ const examplePokemon = require("../data/poke");
         Dragon: 3
     };
  */
-function countByType() {}
 
+function countByType(pokemon) {
+  // Reuse code from countWords(arr) in countWords.js in Module-One-Final-Assessment-Retake-NW(7.2 cohort)
+  // Create an empty object `pokeType`.
+  let pokeType = {};
 
+  // Iterate over the `pokemon` array inputted as a parameter. Use a nested for loop to access the `type` arrays. If the `type` key is truthy, increment it by 1 and if there is more than one instance of the same type, keep incrementing to end with a total count of each type. Also, use the syntax to create key/value pairs and put them in the new object `pokeType`.
+  for (let i = 0; i < pokemon.length; i++) {
+    for (let j = 0; j < pokemon[i].type.length; j++) {
+      let type = pokemon[i].type[j];
+      if (pokeType[type]) {
+        pokeType[type] += 1;
+      } else {
+        pokeType[type] = 1;
+      }
+      
+    }
+  }
+  
+  // Return the object after filling it. If `pokemon` parameter is empty, then return an empty object that was declared at the beginning of the function.
+  return pokeType;
+}
+    
 /**
  * findByNumber()
  * -----------------------------
