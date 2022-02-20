@@ -35,7 +35,21 @@ const exampleWeaknesses = require("../data/weaknesses");
  *  filterByType(pokemon, "Shadow")
  *  //> [];
  */
-function filterByType() {}
+function filterByType(pokemon, type = "Normal") {
+  let typeCase = type.charAt(0).toUpperCase() + type.slice(1,type.length).toLowerCase();
+  let pokemonObj = [];
+  
+  for (let i = 0; i < pokemon.length; i++) {
+    for (let j = 0; j < pokemon[i]["type"].length; j++) {
+      if (pokemon[i]["type"][j] === typeCase) {
+        pokemonObj.push(pokemon[i]);
+      }
+    }
+
+  }
+  return pokemonObj;
+
+}
 
 /**
  * getPokemonNamesMostEffectiveAgainstType()
@@ -56,7 +70,27 @@ function filterByType() {}
     *  getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, "copyright infringement");
  *  //> [];
  */
-function getPokemonNamesMostEffectiveAgainstType() {}
+function getPokemonNamesMostEffectiveAgainstType(pokemon, weaknesses, type) {
+  if (!weaknesses[type]) {
+    return `No Pokemon found of type: '${type}'.`;
+  }
+  let pokemonType = [];
+  for (let weakness of weaknesses[type]) {
+    for (let pokemonName of pokemon) {
+      if (pokemonName.type.includes(weakness) && !pokemonType.includes(pokemonName.name)) { 
+        pokemonType.push(pokemonName.name);
+    }
+  }
+}
+  for (let types of pokemon) {
+    for (let lastType of types.type) {
+      if (weaknesses[type].includes(lastType) && !pokemonType.includes(types.name)) {
+        pokemonType.push(types.name);
+      }
+    }
+  }
+  return pokemonType;
+}
 
 module.exports = {
     filterByType,
