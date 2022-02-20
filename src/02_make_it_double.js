@@ -86,7 +86,6 @@ function findByNumber(pokemon, number) {
   return pokeNatNum;
 };
     
-
 module.exports = {
     countByType,
     findByNumber,
