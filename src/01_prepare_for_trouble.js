@@ -37,7 +37,28 @@ const examplePokemon = require("../data/poke");
   'Dratini',    'Dragonair',  'Dragonite',  'Mewtwo'
 ];
  */
-function getAllPokemonNames() {};
+
+  // My Solution:
+  // 1. Understand the Problem:
+  //  1) Input an array via the `pokemon` parameter. 
+  //  2) If array is empty, return `[]`,
+  //  3) Else return an array of strings, which are Pokemon names accessed and retrieved from the original Pokemon objects array passed in.
+
+  // 2. The Strategy/Plan:
+  //  1) Create an empty array and assign it to a variable.
+  //  2) Iterate over the inputted `pokemon` array of objects.
+  //  3) If array is empty, return an empty array.
+  //  4) If `pokemon` array is not empty push the `.name` key of every object into the new array `pokeNames` and return the array.
+
+function getAllPokemonNames(pokemon) {
+  let pokeNames = [];
+
+  for (let i = 0; i < pokemon.length; i++) {
+    pokeNames.push(pokemon[i].name);
+  }
+
+  return pokeNames;
+};
 
 /**
  * getHighestAttackStatScore()
@@ -50,7 +71,43 @@ function getAllPokemonNames() {};
  *  getHighestAttackStatScore(pokemon);
  *  //> 134
  */
-function getHighestAttackStatScore() {};
+
+// My Solution:
+// 1. Understand the Problem:
+//  1) Input an array via the `pokemon` parameter. 
+//  2) If array is empty, return `0`,
+//  3) Else return the highest `attack` stat score among all Pokemon.
+
+// 2. The Strategy/Plan:
+//  1) Create a variable `highestAttack` to hold the highest score or else assign zero to it and return it. 
+//  2) Access the `stats` key then array and the category of 'attack' at the correct index of every object.
+//  3) Use a nested for loop inside of a for loop to iterate over every `stats` array and check the value of every object with the `category` key and value `attack`. 
+//  4) Use the accumulator pattern to find the largest value of the scores at `attack` objects. 
+//  5) Return the highest score.
+
+
+function getHighestAttackStatScore(pokemon) {
+  let highestAttack;
+  let statsVal;
+  let statsCat;
+
+  if (pokemon.length < 1 || pokemon === undefined) {
+    highestAttack = 0;
+  } else {
+    highestAttack = pokemon[0].stats[2].value;
+    for (let i = 1; i < pokemon.length; i++) {
+      for (let j = 0; j < pokemon[i].stats.length; j++) {
+        statsVal = pokemon[i].stats[2].value;
+        statsCat = pokemon[i].stats[2].category;
+        if (statsCat === 'attack' && statsVal > highestAttack) {
+          highestAttack = statsVal;
+        }
+      }
+    } 
+  }
+
+  return highestAttack;
+};
 
 /**
  * getAverageTotalStatScore()
@@ -63,7 +120,28 @@ function getHighestAttackStatScore() {};
  *  getAverageTotalStatScore(pokemon);
  *  //> 407.22
  */
-function getAverageTotalStatScore() {}
+
+function getAverageTotalStatScore(pokemon) {
+  let averageAttack = 0;
+  let counter = 0;
+  let statsAttackVal;
+  
+  if (pokemon.length < 1 || pokemon === undefined) {
+    return averageAttack;
+  } else {
+    for (let i = 0; i < pokemon.length; i++) {
+      for (let j = 0; j < pokemon[i].stats.length; j++) {
+        statsAttackVal = pokemon[i].stats[0].value;
+        averageAttack += statsAttackVal;
+        counter++;
+      }
+    } 
+  }
+
+  averageAttack = Number((averageAttack / counter).toFixed(2));
+
+  return averageAttack;
+};
 
 
 module.exports = {
