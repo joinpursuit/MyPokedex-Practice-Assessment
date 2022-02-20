@@ -72,8 +72,20 @@ function countByType(pokemon) {
       // Hitmonlee
     };
  */
-function findByNumber() {};
 
+function findByNumber(pokemon, number) {
+
+  pokeNatNum = null;
+    
+  for (let i = 0; i < pokemon.length; i++) {
+    if (number === pokemon[i].national_number) {
+      pokeNatNum = pokemon[i];
+    } 
+    
+  }
+  return pokeNatNum;
+};
+    
 
 module.exports = {
     countByType,
